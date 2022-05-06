@@ -38,7 +38,8 @@ deploy:
   bucket: mjfood-build
   key: mjfood.zip
   bundle_type: zip
-  application: mjfood-group
+  application: mjfood
+  deployment_group: mjfood-group
   region: ap-northeast-2
   wait-until-deployed: true
   on:
