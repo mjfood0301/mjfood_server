@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openJDK8
+  - openjdk8
 
 branches:
   only:
