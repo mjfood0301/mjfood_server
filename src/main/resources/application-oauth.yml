@@ -5,7 +5,7 @@ spring:
         registration:
           kakao:
             client-id: 4a52b4d07fa05c6973ec76f1ec51fca7
-            redirect-uri: "http://localhost:8080/{action}/oauth2/code/{registrationId}"
+            redirect-uri: "https://kaydenserver.shop/{action}/oauth2/code/{registrationId}"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
             scope: profile_nickname, profile_image, account_email
