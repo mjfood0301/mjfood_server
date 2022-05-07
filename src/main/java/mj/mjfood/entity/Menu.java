@@ -19,8 +19,10 @@ public class Menu {
     @JoinColumn(name = "foodId")
     private Food food;
 
+    @Column(length = 50)
     private String name;
 
-    private String profileImage;
+    @Column(columnDefinition = "TEXT")
+    private String image;
 
 }

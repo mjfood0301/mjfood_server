@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -6,10 +6,11 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-public class Review {
+public class Like {
 
     @Id @GeneratedValue
-    private Long reviewId;
+    @Column(name = "like_id")
+    private Long id;
 
     @ManyToOne()
     @JoinColumn(name = "userId")
@@ -18,8 +19,4 @@ public class Review {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "storeId")
     private Store store;
-
-    private String content;
-
-    private int rate;
 }

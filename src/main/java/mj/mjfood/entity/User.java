@@ -3,8 +3,8 @@ package mj.mjfood.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -16,11 +16,14 @@ public class User {
 
     private String image;
 
+    @Column(length = 20)
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String email;
 
-    private LocalDate birthDate;
+    @Temporal(TemporalType.DATE)
+    private Date birthDate;
 
 
 }

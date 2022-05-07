@@ -3,6 +3,7 @@ package mj.mjfood.domain;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,13 +14,17 @@ public class Store {
     @Id @GeneratedValue
     private Long storeId;
 
+    @Column(length = 50)
     private String name;
 
-    private String profileImage;
+    @Column(columnDefinition = "TEXT")
+    private String image;
 
-    private String locationX;
+    @Column(precision = 20)
+    private BigDecimal locationX;
 
-    private String locationY;
+    @Column(precision = 20)
+    private BigDecimal locationY;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Like> likes = new ArrayList<>();

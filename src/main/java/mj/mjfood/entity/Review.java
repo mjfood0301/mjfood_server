@@ -6,10 +6,10 @@ import javax.persistence.*;
 
 @Getter
 @Entity
-public class Like {
+public class Review {
 
     @Id @GeneratedValue
-    private Long likeId;
+    private Long reviewId;
 
     @ManyToOne()
     @JoinColumn(name = "userId")
@@ -18,4 +18,9 @@ public class Like {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "storeId")
     private Store store;
+
+    @Column(columnDefinition = "TEXT")
+    private String content;
+
+    private int rate;
 }

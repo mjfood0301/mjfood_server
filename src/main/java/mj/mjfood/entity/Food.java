@@ -2,10 +2,7 @@ package mj.mjfood.domain;
 
 import lombok.Getter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +13,13 @@ public class Food {
     @Id @GeneratedValue
     private Long foodId;
 
+    @Column(length = 50)
     private String name;
 
+    @Column(columnDefinition = "TEXT")
     private String image;
 
+    @Column(columnDefinition = "TEXT")
     private String info;
 
     @OneToMany(mappedBy = "food")

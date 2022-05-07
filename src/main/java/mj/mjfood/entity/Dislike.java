@@ -2,17 +2,19 @@ package mj.mjfood.domain;
 
 import lombok.Getter;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Getter
 @Entity
-public class Tag {
+public class Dislike {
 
     @Id @GeneratedValue
-    private Long tagId;
+    private long dislikeId;
 
+    @Column(length = 30)
     private String name;
 
 }
