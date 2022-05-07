@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -11,7 +11,8 @@ import java.util.List;
 public class Food {
 
     @Id @GeneratedValue
-    private Long foodId;
+    @Column(name = "food_id")
+    private Long id;
 
     @Column(length = 50)
     private String name;

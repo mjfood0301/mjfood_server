@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 public enum Status {
     ACTIVE, DELETE

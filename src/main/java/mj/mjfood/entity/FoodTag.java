@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -9,7 +9,8 @@ import javax.persistence.*;
 public class FoodTag {
 
     @Id @GeneratedValue
-    private Long foodTagId;
+    @Column(name = "food_tag_id")
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "foodId")

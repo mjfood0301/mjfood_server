@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -12,7 +12,8 @@ import javax.persistence.Id;
 public class Tag {
 
     @Id @GeneratedValue
-    private Long tagId;
+    @Column(name = "tag_id")
+    private Long id;
 
     @Column(length = 50)
     private String name;

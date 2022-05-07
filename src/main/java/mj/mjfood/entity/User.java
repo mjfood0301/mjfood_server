@@ -1,29 +1,33 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Getter
 @Entity
 public class User {
 
     @Id @GeneratedValue
-    private Long userId;
+    @Column(name = "user_id")
+    private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String image;
 
     @Column(length = 20)
     private String name;
 
-    @Column(columnDefinition = "TEXT")
     private String email;
 
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
 
+    public void createUser(String email, String name, String image) {
+        this.email = email;
+        this.name = name;
+        this.image = image;
+    }
 }

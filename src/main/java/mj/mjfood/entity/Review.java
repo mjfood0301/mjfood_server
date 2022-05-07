@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -9,7 +9,8 @@ import javax.persistence.*;
 public class Review {
 
     @Id @GeneratedValue
-    private Long reviewId;
+    @Column(name = "review_id")
+    private Long id;
 
     @ManyToOne()
     @JoinColumn(name = "userId")

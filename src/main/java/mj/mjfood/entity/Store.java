@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -12,7 +12,8 @@ import java.util.List;
 public class Store {
 
     @Id @GeneratedValue
-    private Long storeId;
+    @Column(name = "store_id")
+    private Long id;
 
     @Column(length = 50)
     private String name;
@@ -27,7 +28,7 @@ public class Store {
     private BigDecimal locationY;
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
-    private List<Like> likes = new ArrayList<>();
+    private List<Likes> likes = new ArrayList<>();
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Review> reviews = new ArrayList<>();

@@ -1,4 +1,4 @@
-package mj.mjfood.domain;
+package mj.mjfood.entity;
 
 import lombok.Getter;
 
@@ -12,7 +12,8 @@ import javax.persistence.Id;
 public class Dislike {
 
     @Id @GeneratedValue
-    private long dislikeId;
+    @Column(name = "dislike_id")
+    private Long id;
 
     @Column(length = 30)
     private String name;
