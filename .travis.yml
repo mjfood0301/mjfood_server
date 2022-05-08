@@ -1,28 +1,27 @@
 language: java
 jdk:
-  - openjdk11
-
+- openjdk11
 branches:
   only:
-    - main
-
-#Travis CI 서버의 Home
+  - main
 cache:
   directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.gradle'
+  - "$HOME/.m2/repository"
+  - "$HOME/.gradle"
 script: "./gradlew clean build"
-
+before_install:
+- "openssl aes-256-cbc -K $encrypted_2e8be43b8f53_key -iv $encrypted_2e8be43b8f53_iv
+  -in application-oauth.yml.enc -out application-oauth.yml -d"
+- "-openssl aes-256-cbc -K $encrypted_f728702889c9_key -iv $encrypted_f728702889c9_iv
+  -in Secret.java.enc -out Secret.java -d"
 before_deploy:
-  - zip -r mjfood *
-  - mkdir -p deploy
-  - mv mjfood.zip deploy/mjfood.zip
-
-
+- zip -r mjfood *
+- mkdir -p deploy
+- mv mjfood.zip deploy/mjfood.zip
 deploy:
 - provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
   bucket: mjfood-build
   region: ap-northeast-2
   skip_cleanup: true
@@ -31,10 +30,9 @@ deploy:
   wait-until-deployed: true
   on:
     all_branches: true
-
 - provider: codedeploy
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
   bucket: mjfood-build
   key: mjfood.zip
   bundle_type: zip
@@ -44,9 +42,7 @@ deploy:
   wait-until-deployed: true
   on:
     all_branches: true
-
-  #CI 실행 완료 시 메일로 알람
   notifications:
     email:
       recipients:
-        - kst20026@gmail.com
+      - kst20026@gmail.com
