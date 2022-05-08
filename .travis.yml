@@ -9,11 +9,6 @@ cache:
   - "$HOME/.m2/repository"
   - "$HOME/.gradle"
 script: "./gradlew clean build"
-before_install:
-- "openssl aes-256-cbc -K $encrypted_2e8be43b8f53_key -iv $encrypted_2e8be43b8f53_iv
-  -in application-oauth.yml.enc -out application-oauth.yml -d"
-- "-openssl aes-256-cbc -K $encrypted_f728702889c9_key -iv $encrypted_f728702889c9_iv
-  -in Secret.java.enc -out Secret.java -d"
 before_deploy:
 - zip -r mjfood *
 - mkdir -p deploy
@@ -46,3 +41,7 @@ deploy:
     email:
       recipients:
       - kst20026@gmail.com
+before_install:
+- openssl aes-256-cbc -K $encrypted_2895d60e3414_key -iv $encrypted_2895d60e3414_iv
+  -in secret.tar.enc -out secret.tar -d
+- tar xvf secret.tar
