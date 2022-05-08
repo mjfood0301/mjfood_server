@@ -37,3 +37,4 @@ out/
 .vscode/
 Secret.java
 application-oauth.yml
+application.yml
