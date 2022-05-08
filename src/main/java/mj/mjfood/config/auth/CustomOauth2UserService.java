@@ -46,7 +46,7 @@ public class CustomOauth2UserService implements OAuth2UserService<OAuth2UserRequ
     private void saveOrUpdate(OAuthAttributes attributes) {
         List<User> findUsers = userRepository.findByEmail(attributes.getEmail());
         if (!findUsers.isEmpty()) {
-            throw new IllegalStateException("이미 가입된 회원입니다.");
+            userService.update(findUsers.get(0).getId(),attributes.getEmail(), attributes.getName(), attributes.getPicture());
         }
         User user = new User();
         user.createUser(attributes.getEmail(), attributes.getName(), attributes.getPicture());

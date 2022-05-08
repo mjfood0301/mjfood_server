@@ -41,4 +41,10 @@ public class UserService {
     public List<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
+    @Transactional
+    public void update(Long id, String email, String name, String picture) {
+        User user = userRepository.findOne(id);
+        user.createUser(email,name,picture);
+    }
 }
