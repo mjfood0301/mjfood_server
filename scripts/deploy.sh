@@ -30,7 +30,4 @@ echo "> JAR Name: $JAR_NAME"
 
 chmod +x $JAR_NAME
 
-nohup java -jar \
-  -Dspring.config.location=classpath:/application.yml,home/ubuntu/app/application-oauth.yml \
-  -Dspring.profiles.active=real \
-  $JAR_NAME > $REPOSITORY/nohub.out 2>&1 &
+nohup java java -jar $JAR_NAME > $REPOSITORY/nohup.out 2>&1 &
