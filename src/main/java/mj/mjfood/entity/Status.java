@@ -1,5 +1,5 @@
 package mj.mjfood.entity;
 
 public enum Status {
-    ACTIVE, DELETE
+    ACTIVE, DELETED
 }

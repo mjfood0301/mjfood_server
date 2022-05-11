@@ -1,4 +1,4 @@
-package mj.mjfood.config.dto;
+package mj.mjfood.config.auth.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

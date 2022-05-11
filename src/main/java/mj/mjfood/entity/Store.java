@@ -1,15 +1,17 @@
 package mj.mjfood.entity;
 
 import lombok.Getter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Where(clause = "status='ACTIVE'")
 @Getter
 @Entity
-public class Store {
+public class Store extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "store_id")

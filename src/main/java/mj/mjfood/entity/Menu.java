@@ -1,12 +1,14 @@
 package mj.mjfood.entity;
 
 import lombok.Getter;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 
+@Where(clause = "status='ACTIVE'")
 @Getter
 @Entity
-public class Menu {
+public class Menu extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "menu_id")
