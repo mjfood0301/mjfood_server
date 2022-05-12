@@ -28,6 +28,7 @@ public class InitDb {
         private final EntityManager em;
 
         public void dbInit1() {
+            // Dislike 데이터 추가
             Dislike dislike1 = createDislike("갑각류");
             em.persist(dislike1);
 
@@ -54,6 +55,25 @@ public class InitDb {
 
             Dislike dislike9 = createDislike("조개");
             em.persist(dislike9);
+
+            Dislike dislike10 = createDislike("오이");
+            em.persist(dislike10);
+            Dislike dislike11 = createDislike("콩");
+            em.persist(dislike11);
+            Dislike dislike12 = createDislike("시금치");
+            em.persist(dislike12);
+            Dislike dislike13 = createDislike("김치");
+            em.persist(dislike13);
+            Dislike dislike14 = createDislike("피망");
+            em.persist(dislike14);
+            Dislike dislike15 = createDislike("파프리카");
+            em.persist(dislike15);
+            Dislike dislike16 = createDislike("당근");
+            em.persist(dislike16);
+            Dislike dislike17 = createDislike("가지");
+            em.persist(dislike17);
+            Dislike dislike18 = createDislike("브로콜리");
+            em.persist(dislike18);
         }
 
         private Dislike createDislike(String name) {
