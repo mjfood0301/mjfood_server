@@ -37,4 +37,27 @@ public class Store extends BaseEntity {
 
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Menu> menus = new ArrayList<>();
+
+    private void createStore(String name, String image, BigDecimal locationX, BigDecimal locationY) {
+        this.name = name;
+        this.image = image;
+        this.locationX = locationX;
+        this.locationY = locationY;
+    }
+
+    //==연관관계 메서드==//
+    private void addMenu(Menu menu) {
+        menus.add(menu);
+        menu.addStore(this);
+    }
+
+    //==생성 메서드==//
+    public static Store createStore(String name, String image, BigDecimal locationX, BigDecimal locationY) {
+        Store store = new Store();
+        store.createStore(name, image, locationX, locationY);
+
+
+        return store;
+    }
+
 }

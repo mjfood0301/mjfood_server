@@ -21,4 +21,9 @@ public class FoodDislike extends BaseEntity {
     @ManyToOne()
     @JoinColumn(name = "dislikeId")
     private Dislike dislike;
+
+    //==연관관계 메서드==//
+    public void addFood(Food food) {
+        this.food = food;
+    }
 }

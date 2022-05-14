@@ -21,4 +21,9 @@ public class FoodTag extends BaseEntity {
     @ManyToOne()
     @JoinColumn(name = "tagId")
     private Tag tag;
+
+    //==연관관계 메서드==//
+    public void addFood(Food food) {
+        this.food = food;
+    }
 }
