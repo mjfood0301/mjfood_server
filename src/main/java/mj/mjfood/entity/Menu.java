@@ -25,7 +25,23 @@ public class Menu extends BaseEntity {
     @Column(length = 50)
     private String name;
 
-    @Column(columnDefinition = "TEXT")
-    private String image;
+    //==연관관계 메서드==//
+    public void addFood(Food food) {
+        this.food = food;
+    }
 
+    public void addStore(Store store) {
+        this.store = store;
+    }
+
+    public void changeName(String name) {
+        this.name = name;
+    }
+
+    public static Menu createMenu(Food food, String name) {
+        Menu menu = new Menu();
+        menu.addFood(food);
+        menu.changeName(name);
+        return menu;
+    }
 }

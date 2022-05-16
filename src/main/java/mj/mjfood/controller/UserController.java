@@ -66,7 +66,6 @@ public class UserController {
 
     @ApiOperation(value = "사용자 정보 수정")
     @PatchMapping("/{userId}")
-
     public BaseResponse<String> updateUser(@PathVariable Long userId, @RequestParam List<Long> dislikes) {
         try {
             Long userIdByJwt = jwtService.getUserIdx();
