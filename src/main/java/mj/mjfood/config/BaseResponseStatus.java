@@ -52,6 +52,7 @@ public enum BaseResponseStatus {
 
     //Like
     POST_LIKE_EXISTS(false, 2050, "이미 찜이 되어있습니다."),
+    DELETE_LIKE_EXISTS(false, 2050, "이미 찜이 삭제 되어있습니다."),
 
     //auth
     CHECK_INVALID_PHONE(false, 2060, "휴대폰 형식을 확인해주세요."),
