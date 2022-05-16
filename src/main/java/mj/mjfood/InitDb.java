@@ -1,12 +1,20 @@
 package mj.mjfood;
 
 import lombok.RequiredArgsConstructor;
+import mj.mjfood.dto.CreateMenuDto;
 import mj.mjfood.entity.Dislike;
+import mj.mjfood.entity.Food;
+import mj.mjfood.entity.Tag;
+import mj.mjfood.service.FoodService;
+import mj.mjfood.service.StoreService;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -17,6 +25,9 @@ public class InitDb {
     @PostConstruct
     public void init() {
         initService.dbInit1();
+        initService.dbInit2();
+        initService.dbInit3();
+        initService.dbInit4();
     }
     
 
@@ -26,6 +37,8 @@ public class InitDb {
     static class InitService {
 
         private final EntityManager em;
+        private final FoodService fs;
+        private final StoreService ss;
 
         public void dbInit1() {
             // Dislike 데이터 추가
@@ -76,10 +89,47 @@ public class InitDb {
             em.persist(dislike18);
         }
 
+        public void dbInit2() {
+            Tag tag1 = createTag("분식");
+            em.persist(tag1);
+            Tag tag2 = createTag("매움");
+            em.persist(tag2);
+            Tag tag3 = createTag("면");
+            em.persist(tag3);
+            Tag tag4 = createTag("살찜");
+            em.persist(tag4);
+            Tag tag5 = createTag("건강");
+            em.persist(tag5);
+        }
+
+        public void dbInit3() {
+            List<Long> dislikes = new ArrayList<>();
+            dislikes.add(2L);
+            dislikes.add(8L);
+            List<Long> tags = new ArrayList<>();
+            tags.add(1L);
+            tags.add(2L);
+            tags.add(4L);
+            fs.createFood("떡볶이","imageURL","info",dislikes,tags);
+        }
+
+        public void dbInit4() {
+            List<CreateMenuDto> cmds = new ArrayList<>();
+            CreateMenuDto cmd1 = new CreateMenuDto(24L,"떡튀순");
+            cmds.add(cmd1);
+            ss.createService("까치네 떡볶이", "imageURL",new BigDecimal("3.11111"),new BigDecimal("3.11111"),cmds);
+        }
+
         private Dislike createDislike(String name) {
             Dislike dislike = new Dislike();
             dislike.changeName(name);
             return dislike;
+        }
+
+        private Tag createTag(String name) {
+            Tag tag = new Tag();
+            tag.changeName(name);
+            return tag;
         }
     }
 }

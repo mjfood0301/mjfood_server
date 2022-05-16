@@ -30,6 +30,9 @@ public class User extends BaseEntity {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
    private List<UserDislike> userDislikes = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Likes> likes = new ArrayList<>();
+
     //연관관계 메서드
     public void addUserDislike(UserDislike... userDislikes) {
         for (UserDislike userDislike : userDislikes) {

@@ -20,4 +20,8 @@ public class Tag extends BaseEntity {
     @Column(length = 50)
     private String name;
 
+    public void changeName(String name) {
+        this.name = name;
+    }
+
 }

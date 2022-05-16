@@ -1,12 +1,8 @@
 package mj.mjfood.service;
 
 import lombok.RequiredArgsConstructor;
-import mj.mjfood.entity.Food;
-import mj.mjfood.entity.FoodDislike;
-import mj.mjfood.entity.FoodTag;
-import mj.mjfood.repository.FoodDislikeRepository;
-import mj.mjfood.repository.FoodRepository;
-import mj.mjfood.repository.FoodTagRepository;
+import mj.mjfood.entity.*;
+import mj.mjfood.repository.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,18 +16,28 @@ import static java.util.stream.Collectors.toList;
 public class FoodService {
 
     private final FoodRepository foodRepository;
-    private final FoodDislikeRepository foodDislikeRepository;
-    private final FoodTagRepository foodTagRepository;
+    private final DislikeRepository dislikeRepository;
+    private final TagRepository tagRepository;
 
     @Transactional
-    public Long createFood(String name, String image, String info, List<Long> foodDislikesId, List<Long> foodTagsId) {
+    public Long createFood(String name, String image, String info, List<Long> dislikesId, List<Long> tagsId) {
 
         //엔티티 조회
-        List<FoodDislike> foodDislikes = foodDislikesId.stream()
-                .map(foodDislikeRepository::findOne)
+        List<Dislike> dislikes = dislikesId.stream()
+                .map(dislikeRepository::findOne)
                 .collect(toList());
-        List<FoodTag> foodTags = foodTagsId.stream()
-                .map(foodTagRepository::findOne)
+        List<Tag> tags = tagsId.stream()
+                .map(tagRepository::findOne)
+                .collect(toList());
+
+        //FoodDislike 생성
+        List<FoodDislike> foodDislikes = dislikes.stream()
+                .map(FoodDislike::createFoodDislike)
+                .collect(toList());
+
+        //FoodTag 생성
+        List<FoodTag> foodTags = tags.stream()
+                .map(FoodTag::createFoodTag)
                 .collect(toList());
 
         //음식 생성
@@ -41,6 +47,10 @@ public class FoodService {
         foodRepository.save(food);
 
         return food.getId();
+    }
+
+    public Food findOne(Long foodId) {
+        return foodRepository.findOne(foodId);
     }
 
 }
