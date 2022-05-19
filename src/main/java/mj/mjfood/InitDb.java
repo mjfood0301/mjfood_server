@@ -107,9 +107,9 @@ public class InitDb {
             dislikes.add(2L);
             dislikes.add(8L);
             List<Long> tags = new ArrayList<>();
-            tags.add(1L);
-            tags.add(2L);
-            tags.add(4L);
+            tags.add(19L);
+            tags.add(20L);
+            tags.add(22L);
             fs.createFood("떡볶이","imageURL","info",dislikes,tags);
         }
 

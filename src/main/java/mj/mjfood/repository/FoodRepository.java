@@ -27,4 +27,10 @@ public class FoodRepository {
                 .setParameter("name", name)
                 .getResultList();
     }
+
+    public List<Food> findAllByString(String keyword) {
+        return em.createQuery("select f from Food f where f.name like :keyword", Food.class)
+                .setParameter("keyword", "%"+keyword+"%")
+                .getResultList();
+    }
 }
