@@ -26,4 +26,26 @@ public class Review extends BaseEntity {
     private String content;
 
     private int rate;
+
+    public static Review create(User user, Store store, int rate, String content) {
+        Review review = new Review();
+        review.changeUser(user);
+        review.changeStore(store);
+        review.createReview(rate, content);
+        return review;
+    }
+
+    private void createReview(int rate, String content) {
+        this.rate = rate;
+        this.content = content;
+    }
+
+    private void changeStore(Store store) {
+        this.store = store;
+        store.addReview(this);
+    }
+
+    private void changeUser(User user) {
+        this.user = user;
+    }
 }

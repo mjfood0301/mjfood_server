@@ -51,6 +51,10 @@ public class Store extends BaseEntity {
         menu.addStore(this);
     }
 
+    public void addReview(Review review) {
+        reviews.add(review);
+    }
+
     //==생성 메서드==//
     public static Store createStore(String name, String image, BigDecimal locationX, BigDecimal locationY, List<Menu> menus) {
         Store store = new Store();
