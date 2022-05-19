@@ -31,6 +31,8 @@ public class Likes extends BaseEntity {
             throw new BaseException(DELETE_LIKE_EXISTS);
         }
         this.changeStatus(Status.DELETED);
+        store.deleteLike(this);
+        user.deleteLike(this);
     }
 
     //==샛성 메서드==//

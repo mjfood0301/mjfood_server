@@ -55,6 +55,11 @@ public class Store extends BaseEntity {
         reviews.add(review);
     }
 
+    public void deleteLike(Likes likes) {
+        this.likes.remove(likes);
+        System.out.println(this.likes.size());
+    }
+
     //==생성 메서드==//
     public static Store createStore(String name, String image, BigDecimal locationX, BigDecimal locationY, List<Menu> menus) {
         Store store = new Store();
@@ -70,5 +75,6 @@ public class Store extends BaseEntity {
     public int getTotalLikes() {
         return likes.size();
     }
+
 
 }

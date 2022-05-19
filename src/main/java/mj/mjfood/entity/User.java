@@ -46,6 +46,11 @@ public class User extends BaseEntity {
         userDislike.removeUserDislike();
     }
 
+
+    public void deleteLike(Likes likes) {
+        this.likes.remove(likes);
+    }
+
     //생성 메서드
     public void createUser(String email, String name, String image) {
         this.email = email;
@@ -71,6 +76,5 @@ public class User extends BaseEntity {
             }
         }
     }
-
 
 }
