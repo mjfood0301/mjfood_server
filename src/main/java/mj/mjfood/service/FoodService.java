@@ -53,4 +53,7 @@ public class FoodService {
         return foodRepository.findOne(foodId);
     }
 
+    public List<Food> findFoods(String keyword) {
+        return foodRepository.findAllByString(keyword);
+    }
 }
