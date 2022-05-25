@@ -79,5 +79,4 @@ public class LikeController {
             return new BaseResponse<>(EMPTY_JWT);
         }
     }
-
 }

@@ -90,16 +90,36 @@ public class InitDb {
         }
 
         public void dbInit2() {
-            Tag tag1 = createTag("분식");
+            Tag tag1 = createTag("매움");
             em.persist(tag1);
-            Tag tag2 = createTag("매움");
+            Tag tag2 = createTag("안 매움");
             em.persist(tag2);
-            Tag tag3 = createTag("면");
+            Tag tag3 = createTag("밥");
             em.persist(tag3);
-            Tag tag4 = createTag("살찜");
+            Tag tag4 = createTag("면");
             em.persist(tag4);
-            Tag tag5 = createTag("건강");
+            Tag tag5 = createTag("빵");
             em.persist(tag5);
+            Tag tag6 = createTag("고기");
+            em.persist(tag6);
+            Tag tag7 = createTag("안 고기");
+            em.persist(tag7);
+            Tag tag9 = createTag("국물O");
+            em.persist(tag9);
+            Tag tag10 = createTag("국물X");
+            em.persist(tag10);
+            Tag tag11 = createTag("차가움");
+            em.persist(tag11);
+            Tag tag12 = createTag("따뜻");
+            em.persist(tag12);
+            Tag tag13 = createTag("음식");
+            em.persist(tag13);
+            Tag tag14 = createTag("디저트");
+            em.persist(tag14);
+            Tag tag15 = createTag("단거");
+            em.persist(tag15);
+            Tag tag16 = createTag("안단거");
+            em.persist(tag16);
         }
 
         public void dbInit3() {
@@ -108,8 +128,8 @@ public class InitDb {
             dislikes.add(8L);
             List<Long> tags = new ArrayList<>();
             tags.add(19L);
-            tags.add(20L);
-            tags.add(22L);
+            tags.add(29L);
+            tags.add(30L);
             fs.createFood("떡볶이","imageURL","info",dislikes,tags);
         }
 
